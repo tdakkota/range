@@ -21,7 +21,7 @@ pub fn range(count: i32) RangeIterator {
     return RangeIterator{.max = count - 1, .current = 0, .step = 1};
 }
 
-pub fn range_iter(count: i32, step: i32) RangeIterator {
+pub fn range_step(count: i32, step: i32) RangeIterator {
     return RangeIterator{.max = count - 1, .current = 0, .step = step};
 }
 
@@ -32,9 +32,9 @@ test "range" {
     }
 }
 
-test "range_iter" {
+test "range_step" {
     const step: i32 = 2;
-    var iter = range_iter(10, step);
+    var iter = range_step(10, step);
 
     var prev : i32 = iter.current; 
     var tmp = iter.next(); // skip first zero value
